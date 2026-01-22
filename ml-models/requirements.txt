@@ -1,0 +1,12 @@
+# Guardian Shield - ML Requirements
+tensorflow==2.14.0
+torch==2.1.2
+scikit-learn==1.3.2
+pandas==2.1.4
+numpy==1.24.3
+pillow==10.1.0
+opencv-python==4.9.0.80
+requests==2.31.0
+beautifulsoup4==4.12.2
+matplotlib==3.8.2
+jupyter==1.0.0

@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+*.egg-info/
+
+# Android
+*.apk
+*.ap_
+*.dex
+.gradle/
+build/
+local.properties
+*.iml
+.idea/
+
+# ML Models
+*.h5
+*.pkl
+*.tflite
+*.pth
+
+# Datasets
+*.csv
+datasets/*
+!datasets/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+api_keys.txt
