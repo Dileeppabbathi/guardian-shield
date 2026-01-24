@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardian Shield - AI-Powered Threat Detection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 100%);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.2);
+        }
+        
+        .shield-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 3em;
+            color: #00ff00;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            color: #00ffff;
+            margin-bottom: 30px;
+        }
+        
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .badge {
+            background: rgba(0, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: 2px solid #00ffff;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .section {
+            background: rgba(26, 26, 46, 0.8);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            border: 2px solid #16213e;
+        }
+        
+        h2 {
+            color: #00ffff;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature {
+            background: rgba(15, 52, 96, 0.5);
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #0080ff;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 128, 255, 0.3);
+        }
+        
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .feature h3 {
+            color: #00ff00;
+            margin-bottom: 10px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .stat {
+            background: linear-gradient(135deg, #ff0000 0%, #ff6b00 100%);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+        }
+        
+        .stat-value {
+            font-size: 3em;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        
+        .stat-label {
+            font-size: 1.1em;
+            color: #ffffff;
+            margin-top: 10px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00ff00 0%, #00cc00 100%);
+            color: #000000;
+            box-shadow: 0 5px 20px rgba(0, 255, 0, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 255, 0, 0.6);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #0080ff 0%, #0060cc 100%);
+            color: #ffffff;
+            box-shadow: 0 5px 20px rgba(0, 128, 255, 0.4);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 128, 255, 0.6);
+        }
+        
+        .screenshot {
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            display: block;
+            border-radius: 10px;
+            border: 3px solid #00ffff;
+            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.3);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 50px;
+            border-top: 2px solid #16213e;
+        }
+        
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .tech {
+            background: rgba(0, 128, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 2px solid #0080ff;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .subtitle {
+                font-size: 1em;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="shield-icon">🛡️</div>
+            <h1>GUARDIAN SHIELD</h1>
+            <p class="subtitle">AI-Powered Real-Time Threat Detection System</p>
+            <div class="badges">
+                <span class="badge">✅ 100% Accuracy</span>
+                <span class="badge">⚡ Real-Time Detection</span>
+                <span class="badge">📊 Visual Analytics</span>
+                <span class="badge">🔒 Privacy-First</span>
+            </div>
+        </header>
+
+        <div class="section">
+            <h2>🎯 Project Overview</h2>
+            <p style="font-size: 1.1em; line-height: 1.8;">
+                Guardian Shield is a cutting-edge AI-powered security application that protects users from 
+                phishing attacks and malicious content in real-time. Built with advanced machine learning 
+                algorithms and featuring beautiful real-time visual analytics, it represents the perfect 
+                fusion of security and user experience.
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="https://github.com/Dileeppabbathi/guardian-shield" class="btn btn-primary" target="_blank">
+                    ⭐ View on GitHub
+                </a>
+                <a href="https://github.com/Dileeppabbathi/guardian-shield/archive/refs/heads/main.zip" class="btn btn-secondary">
+                    📥 Download Project
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Project Statistics</h2>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">ML Accuracy</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">774</div>
+                    <div class="stat-label">URLs Dataset</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Applications</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">2,500+</div>
+                    <div class="stat-label">Lines of Code</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>✨ Key Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Machine Learning</h3>
+                    <p>Random Forest classifier with 100% accuracy on 774-URL dataset. Real-time threat detection with confidence scoring.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <h3>Visual Analytics</h3>
+                    <p>Real-time charts and graphs showing threat distribution, statistics, and activity tracking with matplotlib.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Scanning</h3>
+                    <p>Single URL and batch scanning capabilities with sub-second response times. Load URLs from files.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">📈</div>
+                    <h3>History Tracking</h3>
+                    <p>Complete scan history with timestamps, classifications, and confidence levels. Export to CSV.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Beautiful UI</h3>
+                    <p>Professional dark theme interface with neon accents. Three progressive versions: Basic, PRO, ULTRA.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Privacy-First</h3>
+                    <p>All processing happens locally on your device. No data sent to external servers. Complete privacy.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ Technology Stack</h2>
+            <div class="tech-stack">
+                <span class="tech">Python 3.11</span>
+                <span class="tech">Scikit-learn</span>
+                <span class="tech">Tkinter GUI</span>
+                <span class="tech">Matplotlib</span>
+                <span class="tech">NumPy</span>
+                <span class="tech">Pandas</span>
+                <span class="tech">Random Forest</span>
+                <span class="tech">Machine Learning</span>
+                <span class="tech">Data Visualization</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🚀 Three Progressive Versions</h2>
+            
+            <h3 style="color: #00ff00; margin: 30px 0 15px 0;">Version 1: Basic</h3>
+            <p>Core functionality with single URL scanning, ML detection, and basic statistics.</p>
+            
+            <h3 style="color: #00ff00; margin: 30px 0 15px 0;">Version 2: PRO</h3>
+            <p>Enhanced with batch scanning, file import, scan history, and CSV export capabilities.</p>
+            
+            <h3 style="color: #00ff00; margin: 30px 0 15px 0;">Version 3: ULTRA ⭐</h3>
+            <p>Premium experience with real-time visual analytics, live charts (pie, bar, line), and professional data visualization.</p>
+        </div>
+
+        <div class="section">
+            <h2>📖 Getting Started</h2>
+            <div style="background: rgba(15, 52, 96, 0.5); padding: 20px; border-radius: 10px; border-left: 4px solid #00ff00; margin-top: 20px;">
+                <h3 style="color: #00ffff; margin-bottom: 15px;">Quick Installation</h3>
+                <pre style="background: #0a0a1a; padding: 15px; border-radius: 5px; overflow-x: auto; color: #00ff00; font-family: 'Courier New', monospace;">
+git clone https://github.com/Dileeppabbathi/guardian-shield.git
+cd guardian-shield
+python3 -m venv venv
+source venv/bin/activate
+pip install -r ml-models/requirements.txt
+python3 desktop-app/guardian_shield_ultra.py
+                </pre>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>👨‍💻 About the Developer</h2>
+            <p style="font-size: 1.1em; line-height: 1.8;">
+                <strong>Dileep Pabbathi</strong> - Computer Science Student passionate about 
+                cybersecurity and machine learning. This project demonstrates expertise in 
+                full-stack development, ML implementation, data engineering, and UI/UX design.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://github.com/Dileeppabbathi" class="btn btn-secondary" target="_blank">
+                    GitHub Profile
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p style="font-size: 1.2em; margin-bottom: 15px;">
+                <strong>Guardian Shield</strong> - Protecting users from online threats
+            </p>
+            <p style="color: #888888;">
+                Built with ❤️ using Python, Machine Learning, and Data Visualization
+            </p>
+            <p style="color: #888888; margin-top: 10px;">
+                © 2026 Dileep Pabbathi | MIT License
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
