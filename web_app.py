@@ -47,10 +47,24 @@ st.markdown("""
 @st.cache_resource
 def load_model():
     try:
-        with open('ml-models/saved_models/url_classifier_20260124.pkl', 'rb') as f:
-            return pickle.load(f)
-    except:
-        st.error("❌ Model file not found! Make sure you're running from project root.")
+        # Try different paths
+        paths = [
+            'ml-models/saved_models/url_classifier_20260124.pkl',
+            './ml-models/saved_models/url_classifier_20260124.pkl',
+            'url_classifier_20260124.pkl'
+        ]
+        
+        for path in paths:
+            try:
+                with open(path, 'rb') as f:
+                    return pickle.load(f)
+            except:
+                continue
+        
+        st.error("❌ Model file not found in any expected location!")
+        return None
+    except Exception as e:
+        st.error(f"❌ Error loading model: {e}")
         return None
 
 model = load_model()
@@ -112,7 +126,7 @@ with tab1:
     
     if scan_button and url_input:
         if model is None:
-            st.error("Model not loaded!")
+            st.error("❌ Model not loaded! Cannot scan URLs.")
         else:
             with st.spinner("Scanning URL..."):
                 # Extract features
@@ -250,12 +264,15 @@ with st.sidebar:
     """)
     
     st.markdown("### Model Info")
-    st.success("""
-    **Algorithm:** Random Forest  
-    **Accuracy:** 100%  
-    **Training Data:** 774 URLs  
-    **Features:** 9 URL indicators
-    """)
+    if model:
+        st.success("""
+        **Algorithm:** Random Forest  
+        **Accuracy:** 100%  
+        **Training Data:** 774 URLs  
+        **Features:** 9 URL indicators
+        """)
+    else:
+        st.error("**Model:** Not Loaded ❌")
     
     st.markdown("---")
     st.markdown("Built with ❤️ by Dileep Pabbathi")
