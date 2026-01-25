@@ -45,15 +45,30 @@ st.markdown("""
 
 # Load ML Model
 @st.cache_resource
+@st.cache_resource
 def load_model():
+    import os
     try:
-        with open('ml-models/saved_models/url_classifier_20260124.pkl', 'rb') as f:
+        model_path = "ml-models/saved_models/url_classifier_20260124.pkl"
+        if not os.path.exists(model_path):
+            st.sidebar.error(f"Model not found at: {model_path}")
+            return None
+        with open(model_path, "rb") as f:
             return pickle.load(f)
-    except:
-        st.error("❌ Model file not found! Make sure you're running from project root.")
+    except Exception as e:
+        st.sidebar.error(f"Error: {e}")
         return None
 
 model = load_model()
+
+
+
+
+
+
+
+
+
 
 def extract_url_features(url):
     """Extract features from URL"""
