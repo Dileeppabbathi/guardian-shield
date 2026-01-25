@@ -16,7 +16,6 @@ local.properties
 
 # ML Models
 *.h5
-*.pkl
 *.tflite
 *.pth
 
