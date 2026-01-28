@@ -191,9 +191,9 @@ def collect_more_legitimate_urls():
         for url in legitimate_urls:
             writer.writerow([url, 'Curated', datetime.now().strftime("%Y-%m-%d"), 'legitimate'])
     
-    print(f"✅ Collected {len(legitimate_urls)} legitimate URLs")
-    print(f"✅ Saved to: {filename}")
-    print(f"\n📊 Total dataset size:")
+    print(f" Collected {len(legitimate_urls)} legitimate URLs")
+    print(f" Saved to: {filename}")
+    print(f"\n Total dataset size:")
     print(f"   - Legitimate: {len(legitimate_urls) + 18} URLs")
     print(f"   - Phishing: 300 URLs")
     print(f"   - TOTAL: {len(legitimate_urls) + 18 + 300} URLs")

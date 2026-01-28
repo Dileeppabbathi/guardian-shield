@@ -22,9 +22,9 @@ import matplotlib.pyplot as plt
 try:
     with open('../ml-models/saved_models/url_classifier_20260124.pkl', 'rb') as f:
         model = pickle.load(f)
-    print("✅ ML Model loaded successfully!")
+    print(" ML Model loaded successfully!")
 except Exception as e:
-    print(f"❌ Error loading model: {e}")
+    print(f" Error loading model: {e}")
     exit(1)
 
 def extract_url_features(url):
@@ -66,7 +66,7 @@ class GuardianShieldUltra:
         header = tk.Frame(self.root, bg='#16213e', height=70)
         header.pack(fill='x')
         
-        title = tk.Label(header, text="🛡️ GUARDIAN SHIELD ULTRA", 
+        title = tk.Label(header, text="️ GUARDIAN SHIELD ULTRA", 
                         font=('Arial', 28, 'bold'),
                         bg='#16213e', fg='#00ff00')
         title.pack(pady=8)
@@ -91,8 +91,8 @@ class GuardianShieldUltra:
         self.stats_labels = {}
         stats = [
             ('TOTAL SCANS', 'total', '#00ffff'),
-            ('🚨 THREATS', 'threats', '#ff0000'),
-            ('✅ SAFE', 'safe', '#00ff00')
+            (' THREATS', 'threats', '#ff0000'),
+            (' SAFE', 'safe', '#00ff00')
         ]
         
         for i, (label, key, color) in enumerate(stats):
@@ -112,7 +112,7 @@ class GuardianShieldUltra:
         input_frame = tk.Frame(left, bg='#1a1a2e', relief='raised', bd=2)
         input_frame.pack(fill='x', pady=10, padx=5)
         
-        tk.Label(input_frame, text="🔍 URL SCANNER", 
+        tk.Label(input_frame, text=" URL SCANNER", 
                 font=('Arial', 12, 'bold'),
                 bg='#1a1a2e', fg='#00ffff').pack(pady=8)
         
@@ -126,7 +126,7 @@ class GuardianShieldUltra:
         btn_frame = tk.Frame(input_frame, bg='#1a1a2e')
         btn_frame.pack(pady=10)
         
-        tk.Button(btn_frame, text="⚡ SCAN NOW",
+        tk.Button(btn_frame, text=" SCAN NOW",
                  command=self.scan_url,
                  font=('Arial', 12, 'bold'),
                  bg='#00ff00', fg='#000000',
@@ -134,7 +134,7 @@ class GuardianShieldUltra:
                  cursor='hand2', relief='raised',
                  bd=0, padx=25, pady=10).pack(side='left', padx=5)
         
-        tk.Button(btn_frame, text="📊 EXPORT",
+        tk.Button(btn_frame, text=" EXPORT",
                  command=self.export_csv,
                  font=('Arial', 11, 'bold'),
                  bg='#0080ff', fg='#ffffff',
@@ -144,7 +144,7 @@ class GuardianShieldUltra:
         results_frame = tk.Frame(left, bg='#1a1a2e', relief='raised', bd=2)
         results_frame.pack(fill='both', expand=True, pady=5, padx=5)
         
-        tk.Label(results_frame, text="📋 SCAN RESULTS", 
+        tk.Label(results_frame, text=" SCAN RESULTS", 
                 font=('Arial', 11, 'bold'),
                 bg='#1a1a2e', fg='#00ffff').pack(pady=5)
         
@@ -161,7 +161,7 @@ class GuardianShieldUltra:
         right.pack(side='right', fill='both', expand=True, padx=(5,0))
         
         # Chart title
-        tk.Label(right, text="📊 REAL-TIME THREAT ANALYTICS", 
+        tk.Label(right, text=" REAL-TIME THREAT ANALYTICS", 
                 font=('Arial', 14, 'bold'),
                 bg='#0a0a1a', fg='#00ffff').pack(pady=5)
         
@@ -191,10 +191,10 @@ class GuardianShieldUltra:
                 bg='#16213e', fg='#00ffff').pack(pady=5)
         
         # Welcome message
-        self.log_result("🛡️ GUARDIAN SHIELD ULTRA INITIALIZED\n"
-                       "✅ ML Model: ACTIVE (100% Accuracy)\n"
-                       "📊 Visual Analytics: ENABLED\n"
-                       "⚡ Real-Time Monitoring: ONLINE\n"
+        self.log_result("️ GUARDIAN SHIELD ULTRA INITIALIZED\n"
+                       " ML Model: ACTIVE (100% Accuracy)\n"
+                       " Visual Analytics: ENABLED\n"
+                       " Real-Time Monitoring: ONLINE\n"
                        f"⏰ System Time: {datetime.now().strftime('%H:%M:%S')}\n"
                        "="*50 + "\n")
     
@@ -218,25 +218,25 @@ class GuardianShieldUltra:
             # THREAT
             self.threats_detected += 1
             self.threat_history.append(('THREAT', datetime.now()))
-            emoji = "🚨"
+            emoji = ""
             classification = "PHISHING"
             conf = confidence[1]
             color = "RED"
             
             result = f"\n{'='*50}\n"
-            result += f"⚠️  THREAT DETECTED at {timestamp}\n"
+            result += f"️  THREAT DETECTED at {timestamp}\n"
             result += f"URL: {url}\n"
             result += f"Classification: {classification}\n"
             result += f"Confidence: {conf*100:.1f}%\n"
             result += f"Risk Level: HIGH\n"
-            result += f"Action: ❌ BLOCKED\n"
+            result += f"Action:  BLOCKED\n"
             result += f"{'='*50}\n"
             
-            messagebox.showerror("⚠️ THREAT DETECTED",
+            messagebox.showerror("️ THREAT DETECTED",
                                f"MALICIOUS URL DETECTED!\n\n"
                                f"Confidence: {conf*100:.1f}%\n"
                                f"Risk Level: HIGH\n\n"
-                               f"❌ ACCESS BLOCKED")
+                               f" ACCESS BLOCKED")
         else:
             # SAFE
             self.safe_urls += 1
@@ -245,12 +245,12 @@ class GuardianShieldUltra:
             conf = confidence[0]
             
             result = f"\n{'='*50}\n"
-            result += f"✅ SAFE URL at {timestamp}\n"
+            result += f" SAFE URL at {timestamp}\n"
             result += f"URL: {url}\n"
             result += f"Classification: {classification}\n"
             result += f"Confidence: {conf*100:.1f}%\n"
             result += f"Risk Level: LOW\n"
-            result += f"Action: ✓ ALLOWED\n"
+            result += f"Action:  ALLOWED\n"
             result += f"{'='*50}\n"
         
         self.scan_history.append({

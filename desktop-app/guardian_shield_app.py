@@ -15,9 +15,9 @@ sys.path.append('../ml-models')
 try:
     with open('../ml-models/saved_models/url_classifier_20260124.pkl', 'rb') as f:
         model = pickle.load(f)
-    print("✅ ML Model loaded successfully!")
+    print(" ML Model loaded successfully!")
 except Exception as e:
-    print(f"❌ Error loading model: {e}")
+    print(f" Error loading model: {e}")
     exit(1)
 
 def extract_url_features(url):
@@ -53,7 +53,7 @@ class GuardianShieldApp:
         header = tk.Frame(self.root, bg='#16213e', height=80)
         header.pack(fill='x', pady=(0,20))
         
-        title = tk.Label(header, text="🛡️ GUARDIAN SHIELD", 
+        title = tk.Label(header, text="️ GUARDIAN SHIELD", 
                         font=('Arial', 24, 'bold'),
                         bg='#16213e', fg='#00ff00')
         title.pack(pady=15)
@@ -102,7 +102,7 @@ class GuardianShieldApp:
         self.url_entry.bind('<Return>', lambda e: self.scan_url())
         
         # Scan Button
-        self.scan_btn = tk.Button(input_frame, text="🔍 SCAN URL",
+        self.scan_btn = tk.Button(input_frame, text=" SCAN URL",
                                   command=self.scan_url,
                                   font=('Arial', 14, 'bold'),
                                   bg='#00ff00', fg='#000000',
@@ -135,9 +135,9 @@ class GuardianShieldApp:
         footer.pack(fill='x', pady=10)
         
         # Welcome message
-        self.log_result("🛡️ Guardian Shield initialized and ready!\n"
-                       "✅ ML Model loaded (100% accuracy)\n"
-                       "📊 Ready to scan URLs\n"
+        self.log_result("️ Guardian Shield initialized and ready!\n"
+                       " ML Model loaded (100% accuracy)\n"
+                       " Ready to scan URLs\n"
                        f"⏰ Started at {datetime.now().strftime('%H:%M:%S')}\n" + "="*70)
     
     def scan_url(self):
@@ -163,27 +163,27 @@ class GuardianShieldApp:
             # PHISHING DETECTED
             self.threats_detected += 1
             result = f"\n{'='*70}\n"
-            result += f"🚨 THREAT DETECTED at {timestamp}\n"
+            result += f" THREAT DETECTED at {timestamp}\n"
             result += f"URL: {url}\n"
             result += f"Classification: PHISHING\n"
             result += f"Confidence: {confidence[1]*100:.1f}%\n"
-            result += f"Action: BLOCKED ❌\n"
+            result += f"Action: BLOCKED \n"
             result += f"{'='*70}\n"
             
             self.log_result(result, 'red')
-            messagebox.showerror("⚠️ THREAT DETECTED",
+            messagebox.showerror("️ THREAT DETECTED",
                                f"This URL is MALICIOUS!\n\n"
                                f"Confidence: {confidence[1]*100:.1f}%\n\n"
-                               f"❌ ACCESS BLOCKED")
+                               f" ACCESS BLOCKED")
         else:
             # SAFE URL
             self.safe_urls += 1
             result = f"\n{'='*70}\n"
-            result += f"✅ SAFE URL at {timestamp}\n"
+            result += f" SAFE URL at {timestamp}\n"
             result += f"URL: {url}\n"
             result += f"Classification: LEGITIMATE\n"
             result += f"Confidence: {confidence[0]*100:.1f}%\n"
-            result += f"Action: ALLOWED ✓\n"
+            result += f"Action: ALLOWED \n"
             result += f"{'='*70}\n"
             
             self.log_result(result, 'green')

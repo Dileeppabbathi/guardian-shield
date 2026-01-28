@@ -32,6 +32,6 @@ while True:
     confidence = model.predict_proba(features)[0]
     
     if prediction == 1:
-        print(f"🚨 PHISHING DETECTED! Confidence: {confidence[1]*100:.1f}%\n")
+        print(f" PHISHING DETECTED! Confidence: {confidence[1]*100:.1f}%\n")
     else:
-        print(f"✅ SAFE URL. Confidence: {confidence[0]*100:.1f}%\n")
+        print(f" SAFE URL. Confidence: {confidence[0]*100:.1f}%\n")

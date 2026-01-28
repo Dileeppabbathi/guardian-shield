@@ -17,9 +17,9 @@ sys.path.append('../ml-models')
 try:
     with open('../ml-models/saved_models/url_classifier_20260124.pkl', 'rb') as f:
         model = pickle.load(f)
-    print("✅ ML Model loaded successfully!")
+    print(" ML Model loaded successfully!")
 except Exception as e:
-    print(f"❌ Error loading model: {e}")
+    print(f" Error loading model: {e}")
     exit(1)
 
 def extract_url_features(url):
@@ -56,7 +56,7 @@ class GuardianShieldPro:
         header = tk.Frame(self.root, bg='#16213e', height=80)
         header.pack(fill='x', pady=(0,10))
         
-        title = tk.Label(header, text="🛡️ GUARDIAN SHIELD PRO", 
+        title = tk.Label(header, text="️ GUARDIAN SHIELD PRO", 
                         font=('Arial', 26, 'bold'),
                         bg='#16213e', fg='#00ff00')
         title.pack(pady=10)
@@ -81,8 +81,8 @@ class GuardianShieldPro:
         self.stats_labels = {}
         stats = [
             ('Total Scans', 'total', '#00ff00'),
-            ('🚨 Threats', 'threats', '#ff0000'),
-            ('✅ Safe', 'safe', '#00ff00')
+            (' Threats', 'threats', '#ff0000'),
+            (' Safe', 'safe', '#00ff00')
         ]
         
         for i, (label, key, color) in enumerate(stats):
@@ -116,7 +116,7 @@ class GuardianShieldPro:
         self.url_entry.pack(fill='x', pady=5, padx=10, ipady=8)
         self.url_entry.bind('<Return>', lambda e: self.scan_single_url())
         
-        self.scan_btn = tk.Button(tab1, text="🔍 SCAN URL",
+        self.scan_btn = tk.Button(tab1, text=" SCAN URL",
                                   command=self.scan_single_url,
                                   font=('Arial', 13, 'bold'),
                                   bg='#00ff00', fg='#000000',
@@ -144,13 +144,13 @@ class GuardianShieldPro:
         batch_btn_frame = tk.Frame(tab2, bg='#1a1a2e')
         batch_btn_frame.pack(fill='x', padx=10, pady=5)
         
-        tk.Button(batch_btn_frame, text="📂 Load from File",
+        tk.Button(batch_btn_frame, text=" Load from File",
                  command=self.load_urls_from_file,
                  font=('Arial', 10),
                  bg='#0080ff', fg='#ffffff',
                  cursor='hand2', padx=15, pady=5).pack(side='left', padx=5)
         
-        tk.Button(batch_btn_frame, text="🔍 SCAN ALL",
+        tk.Button(batch_btn_frame, text=" SCAN ALL",
                  command=self.scan_batch_urls,
                  font=('Arial', 11, 'bold'),
                  bg='#00ff00', fg='#000000',
@@ -163,13 +163,13 @@ class GuardianShieldPro:
         history_controls = tk.Frame(tab3, bg='#1a1a2e')
         history_controls.pack(fill='x', padx=10, pady=5)
         
-        tk.Button(history_controls, text="📊 Export CSV",
+        tk.Button(history_controls, text=" Export CSV",
                  command=self.export_history_csv,
                  font=('Arial', 10),
                  bg='#0080ff', fg='#ffffff',
                  cursor='hand2', padx=15, pady=5).pack(side='left', padx=5)
         
-        tk.Button(history_controls, text="🗑️ Clear History",
+        tk.Button(history_controls, text="️ Clear History",
                  command=self.clear_history,
                  font=('Arial', 10),
                  bg='#ff0000', fg='#ffffff',
@@ -186,7 +186,7 @@ class GuardianShieldPro:
         right_panel = tk.Frame(main_container, bg='#1a1a2e', width=400)
         right_panel.pack(side='right', fill='both', expand=True, padx=(5,0))
         
-        tk.Label(right_panel, text="🔍 Scan Results:", 
+        tk.Label(right_panel, text=" Scan Results:", 
                 font=('Arial', 12, 'bold'),
                 bg='#1a1a2e', fg='#ffffff').pack(anchor='w', pady=5)
         
@@ -207,10 +207,10 @@ class GuardianShieldPro:
                 bg='#16213e', fg='#888888').pack()
         
         # Welcome message
-        self.log_result("🛡️ Guardian Shield PRO initialized!\n"
-                       "✅ ML Model loaded (100% accuracy)\n"
-                       "📊 Enhanced features active\n"
-                       "⚡ Ready for single or batch scanning\n"
+        self.log_result("️ Guardian Shield PRO initialized!\n"
+                       " ML Model loaded (100% accuracy)\n"
+                       " Enhanced features active\n"
+                       " Ready for single or batch scanning\n"
                        f"⏰ Started at {datetime.now().strftime('%H:%M:%S')}\n" + "="*60)
     
     def scan_single_url(self):
@@ -231,8 +231,8 @@ class GuardianShieldPro:
             messagebox.showwarning("Warning", "Please enter URLs to scan!")
             return
         
-        self.log_result(f"\n{'='*60}\n🔄 BATCH SCAN STARTED\n"
-                       f"📊 Scanning {len(urls)} URLs...\n{'='*60}")
+        self.log_result(f"\n{'='*60}\n BATCH SCAN STARTED\n"
+                       f" Scanning {len(urls)} URLs...\n{'='*60}")
         
         threats = 0
         safe = 0
@@ -244,10 +244,10 @@ class GuardianShieldPro:
             else:
                 safe += 1
         
-        summary = f"\n{'='*60}\n✅ BATCH SCAN COMPLETE\n"
+        summary = f"\n{'='*60}\n BATCH SCAN COMPLETE\n"
         summary += f"Total URLs: {len(urls)}\n"
-        summary += f"🚨 Threats: {threats}\n"
-        summary += f"✅ Safe: {safe}\n"
+        summary += f" Threats: {threats}\n"
+        summary += f" Safe: {safe}\n"
         summary += f"{'='*60}\n"
         
         self.log_result(summary)
@@ -273,7 +273,7 @@ class GuardianShieldPro:
             self.threats_detected += 1
             classification = "PHISHING"
             action = "BLOCKED"
-            emoji = "🚨"
+            emoji = ""
             conf = confidence[1]
             result_type = 'threat'
         else:
@@ -281,7 +281,7 @@ class GuardianShieldPro:
             self.safe_urls += 1
             classification = "LEGITIMATE"
             action = "ALLOWED"
-            emoji = "✅"
+            emoji = ""
             conf = confidence[0]
             result_type = 'safe'
         
@@ -359,12 +359,12 @@ class GuardianShieldPro:
         if messagebox.askyesno("Confirm", "Clear all scan history?"):
             self.scan_history = []
             self.history_text.delete('1.0', tk.END)
-            self.log_result("\n🗑️ History cleared\n")
+            self.log_result("\n️ History cleared\n")
     
     def update_history_display(self):
         self.history_text.delete('1.0', tk.END)
         for entry in reversed(self.scan_history[-50:]):  # Last 50
-            emoji = "🚨" if entry['classification'] == "PHISHING" else "✅"
+            emoji = "" if entry['classification'] == "PHISHING" else "✅"
             line = f"{entry['timestamp']} | {emoji} {entry['url'][:40]}... | {entry['classification']} ({entry['confidence']:.1f}%)\n"
             self.history_text.insert('1.0', line)
     

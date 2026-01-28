@@ -14,7 +14,7 @@ import plotly.express as px
 # Page config
 st.set_page_config(
     page_title="Guardian Shield - URL Threat Detector",
-    page_icon="🛡️",
+    page_icon="️",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -97,7 +97,7 @@ if 'safe_urls' not in st.session_state:
 # Header
 col1, col2, col3 = st.columns([1, 3, 1])
 with col2:
-    st.markdown("<h1 style='text-align: center;'>🛡️ GUARDIAN SHIELD</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>️ GUARDIAN SHIELD</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center;'>AI-Powered URL Threat Detection</h3>", unsafe_allow_html=True)
 
 st.markdown("---")
@@ -107,14 +107,14 @@ col1, col2, col3 = st.columns(3)
 with col1:
     st.metric("Total Scans", st.session_state.total_scans, delta=None)
 with col2:
-    st.metric("🚨 Threats Detected", st.session_state.threats_detected, delta=None)
+    st.metric(" Threats Detected", st.session_state.threats_detected, delta=None)
 with col3:
-    st.metric("✅ Safe URLs", st.session_state.safe_urls, delta=None)
+    st.metric(" Safe URLs", st.session_state.safe_urls, delta=None)
 
 st.markdown("---")
 
 # Main content
-tab1, tab2, tab3 = st.tabs(["🔍 Scan URL", "📊 Analytics", "📋 History"])
+tab1, tab2, tab3 = st.tabs([" Scan URL", "📊 Analytics", "📋 History"])
 
 with tab1:
     st.markdown("### Enter URL to Scan")
@@ -123,7 +123,7 @@ with tab1:
     
     col1, col2, col3 = st.columns([2, 1, 2])
     with col2:
-        scan_button = st.button("⚡ SCAN NOW", use_container_width=True)
+        scan_button = st.button(" SCAN NOW", use_container_width=True)
     
     if scan_button and url_input:
         if model is None:
@@ -145,13 +145,13 @@ with tab1:
                     st.session_state.threats_detected += 1
                     conf = confidence[1] * 100
                     
-                    st.error(f"### 🚨 THREAT DETECTED!")
+                    st.error(f"###  THREAT DETECTED!")
                     st.markdown(f"""
                     **URL:** `{url_input}`  
                     **Classification:** PHISHING  
                     **Confidence:** {conf:.1f}%  
                     **Risk Level:** HIGH  
-                    **Action:** ❌ BLOCKED
+                    **Action:**  BLOCKED
                     """)
                     
                     st.session_state.scan_history.append({
@@ -166,13 +166,13 @@ with tab1:
                     st.session_state.safe_urls += 1
                     conf = confidence[0] * 100
                     
-                    st.success(f"### ✅ SAFE URL")
+                    st.success(f"###  SAFE URL")
                     st.markdown(f"""
                     **URL:** `{url_input}`  
                     **Classification:** LEGITIMATE  
                     **Confidence:** {conf:.1f}%  
                     **Risk Level:** LOW  
-                    **Action:** ✓ ALLOWED
+                    **Action:**  ALLOWED
                     """)
                     
                     st.session_state.scan_history.append({
@@ -186,7 +186,7 @@ with tab1:
                 st.rerun()
 
 with tab2:
-    st.markdown("### 📊 Real-Time Analytics")
+    st.markdown("###  Real-Time Analytics")
     
     if st.session_state.total_scans > 0:
         col1, col2 = st.columns(2)
@@ -227,10 +227,10 @@ with tab2:
             )
             st.plotly_chart(fig_bar, use_container_width=True)
     else:
-        st.info("📊 Scan some URLs to see analytics!")
+        st.info(" Scan some URLs to see analytics!")
 
 with tab3:
-    st.markdown("### 📋 Scan History")
+    st.markdown("###  Scan History")
     
     if st.session_state.scan_history:
         # Convert to dataframe
@@ -242,19 +242,19 @@ with tab3:
         # Download button
         csv = df.to_csv(index=False)
         st.download_button(
-            label="📥 Download History (CSV)",
+            label=" Download History (CSV)",
             data=csv,
             file_name=f"guardian_shield_history_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv"
         )
     else:
-        st.info("📋 No scan history yet. Start scanning URLs!")
+        st.info(" No scan history yet. Start scanning URLs!")
 
 # Sidebar
 with st.sidebar:
     st.markdown("### About Guardian Shield")
     st.info("""
-    🛡️ **Guardian Shield** uses advanced machine learning to detect phishing URLs in real-time.
+    ️ **Guardian Shield** uses advanced machine learning to detect phishing URLs in real-time.
     
     **Features:**
     - 100% ML accuracy
@@ -273,7 +273,7 @@ with st.sidebar:
     """)
     
     st.markdown("---")
-    st.markdown("Built with ❤️ by Dileep Pabbathi")
+    st.markdown("Built with ️ by Dileep Pabbathi")
     st.markdown("[GitHub](https://github.com/Dileeppabbathi/guardian-shield)")
 
 # Footer
