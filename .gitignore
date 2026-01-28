@@ -1,37 +1,16 @@
 # Python
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+.Python
 venv/
-*.egg-info/
+env/
+ENV/
 
-# Android
-*.apk
-*.ap_
-*.dex
-.gradle/
-build/
-local.properties
-*.iml
-.idea/
+# Large model files only (>10MB)
+ml-models/saved_models/url_classifier_kaggle_20260127.pkl
+ml-models/saved_models/image_classifier_20260127.h5
+ml-models/saved_models/anomaly_detector_20260128.h5
 
-# ML Models
-*.h5
-*.tflite
-*.pth
-
-# Datasets
-*.csv
-datasets/*
-!datasets/.gitkeep
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Secrets
-.env
-api_keys.txt
-# Large model files
-ml-models/saved_models/*.pkl
-ml-models/saved_models/*.h5
-ml-models/saved_models/*.tflite
+# Keep small models!
