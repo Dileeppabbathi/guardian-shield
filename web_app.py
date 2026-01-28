@@ -273,7 +273,7 @@ with st.sidebar:
     """)
     
     st.markdown("---")
-    st.markdown("Built with  by Dileep Pabbathi")
+    st.markdown("Built by Dileep Pabbathi")
     st.markdown("[GitHub](https://github.com/Dileeppabbathi/guardian-shield)")
 
 # Footer
