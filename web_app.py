@@ -155,42 +155,43 @@ with tab2:
             st.warning("QR scanning requires OpenCV - available when running locally")
             st.session_state.qr_scans += 1
         elif models_loaded:
-        if st.button("SCAN QR CODE", key="qr_btn"):
-            with st.spinner("Analyzing QR code..."):
-                img = Image.open(uploaded_qr)
-                col1, col2 = st.columns([1, 2])
-                
-                with col1:
-                    st.image(img, caption="QR Code", use_container_width=True)
-                
-                with col2:
-                    img_array = np.array(img.convert('L'))
-                    detector = cv2.QRCodeDetector()
-                    data, vertices, _ = detector.detectAndDecode(img_array)
+            if st.button("SCAN QR CODE", key="qr_btn"):
+                with st.spinner("Analyzing QR code..."):
+                    img = Image.open(uploaded_qr)
+                    col1, col2 = st.columns([1, 2])
                     
-                    st.session_state.qr_scans += 1
+                    with col1:
+                        st.image(img, caption="QR Code", use_container_width=True)
                     
-                    if data:
-                        st.info(f"**Decoded:** {data}")
-                        
-                        # Extract features
-                        features = [100, 50, 0, 255, len(data), data.count('.'), 
-                                  data.count('/'), 1 if 'https' in data.lower() else 0]
-                        features = np.array(features).reshape(1, -1)
-                        
-                        prediction = qr_model.predict(features)[0]
-                        proba = qr_model.predict_proba(features)[0]
-                        
-                        if prediction == 1:
-                            st.session_state.threats_detected += 1
-                            st.error("MALICIOUS QR CODE!")
-                            st.markdown(f"**Confidence:** {proba[1]*100:.1f}%")
-                        else:
-                            st.session_state.safe_count += 1
-                            st.success("QR CODE IS SAFE")
-                            st.markdown(f"**Confidence:** {proba[0]*100:.1f}%")
-                    else:
-                        st.error("Could not decode QR code")
+                    with col2:
+                        try:
+                            import cv2 as cv2_module
+                            img_array = np.array(img.convert('L'))
+                            detector = cv2_module.QRCodeDetector()
+                            data, vertices, _ = detector.detectAndDecode(img_array)
+                            
+                            st.session_state.qr_scans += 1
+                            
+                            if data:
+                                st.info(f"**Decoded:** {data}")
+                                features = [100, 50, 0, 255, len(data), data.count('.'), 
+                                          data.count('/'), 1 if 'https' in data.lower() else 0]
+                                features = np.array(features).reshape(1, -1)
+                                prediction = qr_model.predict(features)[0]
+                                proba = qr_model.predict_proba(features)[0]
+                                
+                                if prediction == 1:
+                                    st.session_state.threats_detected += 1
+                                    st.error("MALICIOUS QR CODE!")
+                                    st.markdown(f"**Confidence:** {proba[1]*100:.1f}%")
+                                else:
+                                    st.session_state.safe_count += 1
+                                    st.success("QR CODE IS SAFE")
+                                    st.markdown(f"**Confidence:** {proba[0]*100:.1f}%")
+                            else:
+                                st.error("Could not decode QR code")
+                        except:
+                            st.error("QR decoding not available")
 
 # TAB 3: Image Scanner  
 with tab3:
