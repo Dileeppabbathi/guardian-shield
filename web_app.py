@@ -11,8 +11,8 @@ st.set_page_config(page_title="Guardian Shield", page_icon="", layout="wide", in
 
 st.markdown("""
 <style>
-.main {background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 100%);}
-.stButton>button {background: linear-gradient(135deg, #00ff00 0%, #00cc00 100%); color: black; font-weight: bold;}
+.main {background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 89.59%);}
+.stButton>button {background: linear-gradient(135deg, #00ff00 0%, #00cc00 89.59%); color: black; font-weight: bold;}
 h1 {color: #00ff00 !important;}
 h2, h3 {color: #00ffff !important;}
 </style>
@@ -120,8 +120,8 @@ with st.sidebar:
     if model:
         st.success("""
 **Algorithm:** Random Forest  
-**URL Accuracy:** 100%  
-**Training Data:** 774 URLs  
+**URL Accuracy:** 89.59%  
+**Training Data:** 651,199 URLs  
 **Features:** 9 indicators
         """)
     else:
