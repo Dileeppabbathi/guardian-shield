@@ -31,3 +31,7 @@ Thumbs.db
 # Secrets
 .env
 api_keys.txt
+# Large model files
+ml-models/saved_models/*.pkl
+ml-models/saved_models/*.h5
+ml-models/saved_models/*.tflite
