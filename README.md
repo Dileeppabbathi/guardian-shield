@@ -1,236 +1,140 @@
 # Guardian Shield
 
-AI-Based Real-Time Threat Detection System for URLs and QR Codes
+Multi-Layer AI-Based Threat Detection System
 
 ## Overview
 
-Guardian Shield is a machine learning-powered security application that detects malicious URLs and QR codes in real-time. The system uses Random Forest classifiers trained on over 650,000 URLs to identify phishing attempts, malware distribution sites, and other cyber threats.
+Guardian Shield is a comprehensive machine learning-powered security system that detects malicious URLs, QR codes, images, and unknown zero-day threats in real-time. The system employs four independent ML models working in concert to provide multi-layer protection against cyber threats.
+
+## Project Information
+
+- **Author**: Dileep Pabbathi
+- **Institution**: Arizona State University
+- **Course**: CSE 543 - Information Assurance and Security
+- **Date**: January 2026
+- **Status**: Complete - Phase 1
 
 ## Features
 
-- **URL Threat Detection**: Analyzes URLs using 9 extracted features with 89.59% accuracy
-- **QR Code Analysis**: Decodes and validates QR codes with 85.50% accuracy
-- **Real-Time Scanning**: Instant threat detection and classification
-- **Multi-Platform Support**: Desktop applications and web interface
-- **Visual Analytics**: Real-time charts and statistics dashboard
-- **Export Capabilities**: CSV export for scan history and analysis
+- Multi-layer threat detection using 4 ML models
+- Real-time URL phishing detection (89.59% accuracy)
+- QR code malware detection (85.50% accuracy)
+- Image-based threat classification (83.10% accuracy)
+- Zero-day anomaly detection (62.7% detection rate)
+- Desktop applications with visual analytics
+- Web-based interface (deployed on Streamlit Cloud)
 
-## Technical Specifications
+## Machine Learning Models
 
-### Machine Learning Models
+### 1. URL Threat Classifier
+- **Algorithm**: Random Forest (100 estimators)
+- **Training Data**: 651,199 URLs from Kaggle
+- **Features**: 9 URL-based indicators
+- **Accuracy**: 89.59%
 
-**URL Classifier**
-- Algorithm: Random Forest (100 estimators)
-- Training Dataset: 651,199 URLs
-- Features: 9 URL-based indicators
-- Accuracy: 89.59%
-- Model Size: 158 KB
+### 2. QR Code Classifier
+- **Algorithm**: Random Forest (100 estimators)
+- **Training Data**: 2,000 generated QR codes
+- **Features**: 8 combined features (image + URL analysis)
+- **Accuracy**: 85.50%
 
-**QR Code Classifier**
-- Algorithm: Random Forest (100 estimators)
-- Training Dataset: 2,000 QR codes
-- Features: 8 image and URL features
-- Accuracy: 85.50%
-- Model Size: ~2 MB
+### 3. Image Threat Classifier
+- **Algorithm**: Transfer Learning with MobileNetV2
+- **Training Data**: 3,201 images (balanced: 1,500 malware, 550 phishing, 1,151 safe)
+- **Accuracy**: 83.10% validation, 80% real-world
 
-### Technology Stack
+### 4. Anomaly Detection Model
+- **Algorithm**: Convolutional Autoencoder
+- **Training Data**: 1,151 safe images only
+- **Detection Rate**: 62.7% on unknown malware
 
-- **Languages**: Python 3.11, Kotlin
-- **ML Frameworks**: Scikit-learn, TensorFlow
-- **Web Framework**: Streamlit
-- **GUI**: Tkinter
-- **Data Processing**: Pandas, NumPy
-- **Visualization**: Matplotlib, Plotly
+## Performance Summary
 
-## Project Structure
-```
-guardian-shield/
- ml-models/              # Machine learning models and training scripts
-    saved_models/       # Trained model files
-    train_url_model_kaggle.py
-    train_qr_model.py
- desktop-app/            # Desktop applications
-    guardian_shield_app.py
-    guardian_shield_pro.py
-    guardian_shield_ultra.py
- datasets/               # Training datasets
-    urls_kaggle/       # URL datasets (651K URLs)
-    images/            # Image datasets
- web_app.py             # Web application
- docs/                  # Documentation and GitHub Pages
- android-app/           # Android application structure
-```
+| Model | Accuracy/Detection | Training Samples |
+|-------|-------------------|------------------|
+| URL Classifier | 89.59% | 651,199 |
+| QR Classifier | 85.50% | 2,000 |
+| Image Classifier | 83.10% | 3,201 |
+| Anomaly Detector | 62.7% | 1,151 |
 
 ## Installation
 
 ### Prerequisites
+- Python 3.11+
+- 8GB RAM minimum
+- 5GB free disk space
 
-- Python 3.11 or higher
-- pip package manager
-- 2GB free disk space
-
-### Setup Instructions
-
-1. Clone the repository:
+### Setup
 ```bash
 git clone https://github.com/Dileeppabbathi/guardian-shield.git
 cd guardian-shield
-```
-
-2. Create virtual environment:
-```bash
 python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. Install dependencies:
-```bash
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
 ## Usage
 
 ### Desktop Application
-
-Run the ULTRA version with visual analytics:
 ```bash
 python3 desktop-app/guardian_shield_ultra.py
 ```
 
-Run the PRO version with batch scanning:
-```bash
-python3 desktop-app/guardian_shield_pro.py
-```
-
 ### Web Application
-
-Run locally:
 ```bash
 streamlit run web_app.py
 ```
 
-Access the live deployment:
-[https://guardian-shield-wsm3t93teo7alrauatsc3x.streamlit.app/](https://guardian-shield-wsm3t93teo7alrauatsc3x.streamlit.app/)
+**Live Demo**: https://guardian-shield-wsm3t93teo7alrauatsc3x.streamlit.app/
 
-### Training Models
+## Technology Stack
 
-Retrain URL classifier:
-```bash
-cd ml-models
-python3 train_url_model_kaggle.py
+- **ML Frameworks**: scikit-learn, TensorFlow, Keras
+- **Computer Vision**: OpenCV, PIL
+- **Web**: Streamlit
+- **Desktop**: Tkinter
+- **Data**: Pandas, NumPy
+
+## Datasets
+
+- **URLs**: 651,199 samples (Kaggle)
+- **Malware Images**: 22,056 samples
+- **Phishing Screenshots**: 550 samples
+- **Safe Images**: 1,151 samples
+
+## Project Structure
+```
+guardian-shield/
+├── ml-models/              # ML models and training scripts
+├── desktop-app/            # Desktop applications
+├── datasets/               # Training data
+├── web_app.py             # Streamlit web app
+└── requirements.txt       # Dependencies
 ```
 
-Train QR classifier:
-```bash
-python3 train_qr_model.py
-```
+## Known Limitations
 
-## Performance Metrics
+1. Image model has limited phishing detection (40%) due to small dataset
+2. Anomaly detector has 16% false positive rate
+3. Large model files (>100MB) not included in repository
 
-### URL Classifier Results
-- Training Samples: 520,952
-- Test Samples: 130,239
-- Training Accuracy: 91.23%
-- Test Accuracy: 89.59%
-- Precision: 0.86
-- Recall: 0.85
-- F1-Score: 0.85
+## Future Work
 
-### QR Classifier Results
-- Training Samples: 1,600
-- Test Samples: 400
-- Training Accuracy: 99.88%
-- Test Accuracy: 85.50%
-- Precision: 0.86
-- Recall: 0.85
-- F1-Score: 0.86
+- Android mobile application
+- Expand phishing image dataset to 10K+ samples
+- Real-time notification monitoring
+- API for third-party integration
 
-## Development Roadmap
+## Contact
 
-### Completed (Week 1-2)
-- [x] URL classification model (89.59% accuracy)
-- [x] QR code detection model (85.50% accuracy)
-- [x] Desktop applications (3 versions)
-- [x] Web application with Streamlit
-- [x] Data collection (651K URLs)
-- [x] Real-time analytics dashboard
-- [x] Documentation and deployment
-
-### In Progress (Week 3-4)
-- [ ] Android application development
-- [ ] Image-based malware detection
-- [ ] Notification monitoring service
-
-### Future Enhancements (Week 5+)
-- [ ] Anomaly detection for zero-day threats
-- [ ] Continuous learning pipeline
-- [ ] Threat intelligence API integration
-- [ ] Mobile deployment with TensorFlow Lite
-
-## Dataset Information
-
-### URL Dataset
-- Source: Kaggle (malicious-urls-dataset)
-- Total URLs: 651,199
-- Categories: Benign, Phishing, Defacement, Malware
-- Format: CSV
-- Size: 44 MB
-
-### QR Code Dataset
-- Source: Generated from URL dataset
-- Total QR Codes: 2,000
-- Categories: Benign (1,000), Malicious (1,000)
-- Generation Method: qrcode library
-
-## Contributing
-
-Contributions are welcome! Please follow these guidelines:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/improvement`)
-3. Commit your changes (`git commit -am 'Add new feature'`)
-4. Push to the branch (`git push origin feature/improvement`)
-5. Create a Pull Request
+- **Author**: Dileep Pabbathi
+- **GitHub**: https://github.com/Dileeppabbathi/guardian-shield
+- **Email**: dpabbath@asu.edu
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Author
-
-**Dileep Pabbathi**
-- GitHub: [@Dileeppabbathi](https://github.com/Dileeppabbathi)
-- Project Link: [https://github.com/Dileeppabbathi/guardian-shield](https://github.com/Dileeppabbathi/guardian-shield)
-
-## Acknowledgments
-
-- Kaggle for providing the malicious URLs dataset
-- OpenPhish for phishing URL feeds
-- TensorFlow and Scikit-learn communities
-- Streamlit for web deployment platform
-
-## Citation
-
-If you use this project in your research or work, please cite:
-```bibtex
-@software{guardian_shield_2026,
-  author = {Pabbathi, Dileep},
-  title = {Guardian Shield: AI-Based Real-Time Threat Detection System},
-  year = {2026},
-  url = {https://github.com/Dileeppabbathi/guardian-shield}
-}
-```
-
-## Project Statistics
-
-- Lines of Code: 3,000+
-- Commits: 25+
-- Files: 40+
-- Training Time: ~4 hours
-- Development Time: ~16 hours
-- Models Trained: 2
-- Accuracy Range: 85-90%
+Academic project - Arizona State University
 
 ---
 
-**Status**: Active Development | **Version**: 3.0 | **Last Updated**: January 2026
+**Status**: Active Development | **Version**: 3.0 | **Updated**: January 28, 2026
