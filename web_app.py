@@ -49,7 +49,7 @@ st.markdown("""
 def load_model():
     import os
     try:
-        model_path = "ml-models/saved_models/url_classifier_20260124.pkl"
+        model_path = "ml-models/saved_models/url_classifier.pkl"
         if not os.path.exists(model_path):
             st.sidebar.error(f"Model not found at: {model_path}")
             return None
