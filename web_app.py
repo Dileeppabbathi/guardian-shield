@@ -2,7 +2,11 @@ import streamlit as st
 import pickle
 import numpy as np
 from PIL import Image
-import cv2
+try:
+    import cv2
+    CV2_AVAILABLE = True
+except:
+    CV2_AVAILABLE = False
 import tensorflow as tf
 from tensorflow import keras
 
@@ -146,7 +150,11 @@ with tab2:
     st.markdown("## QR Code Analysis")
     uploaded_qr = st.file_uploader("Upload QR Code Image", type=['png', 'jpg', 'jpeg'], key="qr")
     
-    if uploaded_qr and models_loaded:
+    if uploaded_qr:
+        if not CV2_AVAILABLE:
+            st.warning("QR scanning requires OpenCV - available when running locally")
+            st.session_state.qr_scans += 1
+        elif models_loaded:
         if st.button("SCAN QR CODE", key="qr_btn"):
             with st.spinner("Analyzing QR code..."):
                 img = Image.open(uploaded_qr)
