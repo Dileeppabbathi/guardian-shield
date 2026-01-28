@@ -17,7 +17,7 @@ print("️ GUARDIAN SHIELD - IMAGE MODEL TRAINING")
 print("=" * 60)
 
 # Paths
-data_dir = '../datasets/images/raw'
+data_dir = '../datasets/images/balanced'
 model_save_path = 'saved_models/image_classifier_20260127.h5'
 
 # Check dataset
