@@ -23,10 +23,10 @@ st.set_page_config(
 st.markdown("""
     <style>
     .main {
-        background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 100%);
+        background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 89.59%);
     }
     .stButton>button {
-        background: linear-gradient(135deg, #00ff00 0%, #00cc00 100%);
+        background: linear-gradient(135deg, #00ff00 0%, #00cc00 89.59%);
         color: black;
         font-weight: bold;
         border-radius: 10px;
@@ -257,7 +257,7 @@ with st.sidebar:
      **Guardian Shield** uses advanced machine learning to detect phishing URLs in real-time.
     
     **Features:**
-    - 100% ML accuracy
+    - 89.59% ML accuracy
     - Real-time detection
     - Visual analytics
     - Scan history
@@ -267,8 +267,8 @@ with st.sidebar:
     st.markdown("### Model Info")
     st.success("""
     **Algorithm:** Random Forest  
-    **Accuracy:** 100%  
-    **Training Data:** 774 URLs  
+    **Accuracy:** 89.59%  
+    **Training Data:** 651,199 URLs  
     **Features:** 9 URL indicators
     """)
     
