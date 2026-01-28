@@ -97,7 +97,7 @@ for url in test_urls:
     features = np.array([extract_url_features(url)])
     prediction = model.predict(features)[0]
     confidence = model.predict_proba(features)[0]
-    label = " PHISHING" if prediction == 1 else "✅ SAFE"
+    label = " PHISHING" if prediction == 1 else " SAFE"
     print(f"{label} ({confidence[prediction]*100:.1f}%): {url[:50]}...")
 
 print("\n" + "=" * 50)

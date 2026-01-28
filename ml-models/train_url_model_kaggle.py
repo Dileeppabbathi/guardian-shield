@@ -39,7 +39,7 @@ def extract_url_features(url):
     return features
 
 # Prepare data
-print("\n️ Extracting features...")
+print("\n Extracting features...")
 X = []
 y = []
 

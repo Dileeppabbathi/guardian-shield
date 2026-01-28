@@ -56,22 +56,22 @@ python3 train_image_model.py
 ## Project Structure
 ```
 guardian-shield/
-├── ml-models/                    # Machine learning models
-│   ├── saved_models/            # Trained model files (.pkl, .h5)
-│   ├── train_url_model_kaggle.py
-│   ├── train_qr_model.py
-│   └── train_image_model.py
-├── desktop-app/                 # Desktop applications
-│   ├── guardian_shield_app.py        # Basic version
-│   ├── guardian_shield_pro.py        # PRO version
-│   └── guardian_shield_ultra.py      # ULTRA version with charts
-├── datasets/                    # Training datasets
-│   ├── urls_kaggle/            # 651K URLs
-│   └── images/                 # Image datasets
-├── web_app.py                  # Streamlit web application
-├── docs/                       # GitHub Pages documentation
-├── android-app/                # Android project structure
-└── requirements.txt            # Python dependencies
+ ml-models/                    # Machine learning models
+    saved_models/            # Trained model files (.pkl, .h5)
+    train_url_model_kaggle.py
+    train_qr_model.py
+    train_image_model.py
+ desktop-app/                 # Desktop applications
+    guardian_shield_app.py        # Basic version
+    guardian_shield_pro.py        # PRO version
+    guardian_shield_ultra.py      # ULTRA version with charts
+ datasets/                    # Training datasets
+    urls_kaggle/            # 651K URLs
+    images/                 # Image datasets
+ web_app.py                  # Streamlit web application
+ docs/                       # GitHub Pages documentation
+ android-app/                # Android project structure
+ requirements.txt            # Python dependencies
 ```
 
 ---

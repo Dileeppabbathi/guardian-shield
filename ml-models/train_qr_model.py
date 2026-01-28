@@ -28,7 +28,7 @@ print(f"   Benign: {len(benign_urls)}")
 print(f"   Malicious: {len(malicious_urls)}")
 
 # Generate QR codes
-print("\n️ Generating QR codes...")
+print("\n Generating QR codes...")
 qr_features = []
 labels = []
 

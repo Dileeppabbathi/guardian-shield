@@ -53,7 +53,7 @@ class GuardianShieldApp:
         header = tk.Frame(self.root, bg='#16213e', height=80)
         header.pack(fill='x', pady=(0,20))
         
-        title = tk.Label(header, text="️ GUARDIAN SHIELD", 
+        title = tk.Label(header, text=" GUARDIAN SHIELD", 
                         font=('Arial', 24, 'bold'),
                         bg='#16213e', fg='#00ff00')
         title.pack(pady=15)
@@ -135,7 +135,7 @@ class GuardianShieldApp:
         footer.pack(fill='x', pady=10)
         
         # Welcome message
-        self.log_result("️ Guardian Shield initialized and ready!\n"
+        self.log_result(" Guardian Shield initialized and ready!\n"
                        " ML Model loaded (100% accuracy)\n"
                        " Ready to scan URLs\n"
                        f"⏰ Started at {datetime.now().strftime('%H:%M:%S')}\n" + "="*70)
@@ -171,7 +171,7 @@ class GuardianShieldApp:
             result += f"{'='*70}\n"
             
             self.log_result(result, 'red')
-            messagebox.showerror("️ THREAT DETECTED",
+            messagebox.showerror(" THREAT DETECTED",
                                f"This URL is MALICIOUS!\n\n"
                                f"Confidence: {confidence[1]*100:.1f}%\n\n"
                                f" ACCESS BLOCKED")

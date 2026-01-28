@@ -45,20 +45,20 @@ Guardian Shield is a machine learning-powered security application that detects 
 ## Project Structure
 ```
 guardian-shield/
-├── ml-models/              # Machine learning models and training scripts
-│   ├── saved_models/       # Trained model files
-│   ├── train_url_model_kaggle.py
-│   └── train_qr_model.py
-├── desktop-app/            # Desktop applications
-│   ├── guardian_shield_app.py
-│   ├── guardian_shield_pro.py
-│   └── guardian_shield_ultra.py
-├── datasets/               # Training datasets
-│   ├── urls_kaggle/       # URL datasets (651K URLs)
-│   └── images/            # Image datasets
-├── web_app.py             # Web application
-├── docs/                  # Documentation and GitHub Pages
-└── android-app/           # Android application structure
+ ml-models/              # Machine learning models and training scripts
+    saved_models/       # Trained model files
+    train_url_model_kaggle.py
+    train_qr_model.py
+ desktop-app/            # Desktop applications
+    guardian_shield_app.py
+    guardian_shield_pro.py
+    guardian_shield_ultra.py
+ datasets/               # Training datasets
+    urls_kaggle/       # URL datasets (651K URLs)
+    images/            # Image datasets
+ web_app.py             # Web application
+ docs/                  # Documentation and GitHub Pages
+ android-app/           # Android application structure
 ```
 
 ## Installation

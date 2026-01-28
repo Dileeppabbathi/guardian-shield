@@ -8,7 +8,7 @@ import cv2
 from PIL import Image
 import io
 
-st.set_page_config(page_title="Guardian Shield", page_icon="️", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="Guardian Shield", page_icon="", layout="wide", initial_sidebar_state="expanded")
 
 st.markdown("""
 <style>
@@ -96,7 +96,7 @@ if 'total_scans' not in st.session_state:
 
 # Sidebar
 with st.sidebar:
-    st.markdown("### ️ Guardian Shield")
+    st.markdown("###  Guardian Shield")
     st.markdown("**Multi-layer Detection**")
     st.markdown("•  URL Scanning")
     st.markdown("•  Image Analysis")
@@ -111,7 +111,7 @@ with st.sidebar:
     st.markdown("Built by Dileep Pabbathi")
 
 # Header
-st.markdown("<h1 style='text-align: center;'>️ GUARDIAN SHIELD</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'> GUARDIAN SHIELD</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center;'>Multi-Layer Threat Detection</h3>", unsafe_allow_html=True)
 st.markdown("---")
 
@@ -125,7 +125,7 @@ col5.metric(" Safe", st.session_state.safe)
 
 st.markdown("---")
 
-tab1, tab2, tab3, tab4 = st.tabs([" URL Scan", "📷 Image Scan", "🔲 QR Scan", "📊 Analytics"])
+tab1, tab2, tab3, tab4 = st.tabs([" URL Scan", " Image Scan", " QR Scan", " Analytics"])
 
 with tab1:
     st.markdown("###  URL Threat Detection")

@@ -9,12 +9,12 @@ import os
 from PIL import Image
 from sklearn.model_selection import train_test_split
 
-print("🔍 IMPROVED ANOMALY DETECTION TRAINING")
+print(" IMPROVED ANOMALY DETECTION TRAINING")
 print("=" * 60)
 
 # Load safe images
 data_dir = '../datasets/images/balanced/safe'
-print(f"\n📂 Loading safe images from: {data_dir}")
+print(f"\n Loading safe images from: {data_dir}")
 
 images = []
 for filename in os.listdir(data_dir):
@@ -29,13 +29,13 @@ for filename in os.listdir(data_dir):
             pass
 
 images = np.array(images)
-print(f"✅ Loaded {len(images)} safe images")
+print(f" Loaded {len(images)} safe images")
 
 X_train, X_test = train_test_split(images, test_size=0.2, random_state=42)
-print(f"📊 Training: {len(X_train)}, Testing: {len(X_test)}")
+print(f" Training: {len(X_train)}, Testing: {len(X_test)}")
 
 # IMPROVED: Deeper autoencoder
-print(f"\n🏗️ Building IMPROVED Autoencoder...")
+print(f"\n Building IMPROVED Autoencoder...")
 
 encoder_input = layers.Input(shape=(128, 128, 3))
 x = layers.Conv2D(32, (3, 3), activation='relu', padding='same')(encoder_input)
@@ -60,7 +60,7 @@ decoder_output = layers.Conv2D(3, (3, 3), activation='sigmoid', padding='same')(
 autoencoder = keras.Model(encoder_input, decoder_output)
 autoencoder.compile(optimizer='adam', loss='mse')
 
-print("\n🚀 Training for 50 epochs...")
+print("\n Training for 50 epochs...")
 
 history = autoencoder.fit(
     X_train, X_train,
@@ -75,13 +75,13 @@ reconstructions = autoencoder.predict(X_test, verbose=0)
 mse = np.mean(np.power(X_test - reconstructions, 2), axis=(1,2,3))
 threshold = np.percentile(mse, 85)  # CHANGED from 95 to 85
 
-print(f"\n📊 IMPROVED Anomaly threshold: {threshold:.6f} (was ~0.008)")
+print(f"\n IMPROVED Anomaly threshold: {threshold:.6f} (was ~0.008)")
 
 # Save
 autoencoder.save('saved_models/anomaly_detector_improved.h5')
 np.save('saved_models/anomaly_threshold_improved.npy', threshold)
 
-print(f"\n✅ Improved model saved!")
+print(f"\n Improved model saved!")
 
 # Test immediately
 print(f"\n🧪 Quick test on malware...")
@@ -105,4 +105,4 @@ if malware_imgs:
     rate = (detected / len(mal_mse)) * 100
     print(f"   Malware detection: {rate:.1f}% (was 19%)")
 
-print(f"\n🎉 IMPROVED ANOMALY DETECTOR COMPLETE!")
+print(f"\n IMPROVED ANOMALY DETECTOR COMPLETE!")

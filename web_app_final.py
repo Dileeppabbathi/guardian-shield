@@ -14,7 +14,7 @@ import plotly.express as px
 # Page config
 st.set_page_config(
     page_title="Guardian Shield - URL Threat Detector",
-    page_icon="️",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -97,7 +97,7 @@ if 'safe_urls' not in st.session_state:
 # Header
 col1, col2, col3 = st.columns([1, 3, 1])
 with col2:
-    st.markdown("<h1 style='text-align: center;'>️ GUARDIAN SHIELD</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'> GUARDIAN SHIELD</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center;'>AI-Powered URL Threat Detection</h3>", unsafe_allow_html=True)
 
 st.markdown("---")
@@ -114,7 +114,7 @@ with col3:
 st.markdown("---")
 
 # Main content
-tab1, tab2, tab3 = st.tabs([" Scan URL", "📊 Analytics", "📋 History"])
+tab1, tab2, tab3 = st.tabs([" Scan URL", " Analytics", " History"])
 
 with tab1:
     st.markdown("### Enter URL to Scan")
@@ -254,7 +254,7 @@ with tab3:
 with st.sidebar:
     st.markdown("### About Guardian Shield")
     st.info("""
-    ️ **Guardian Shield** uses advanced machine learning to detect phishing URLs in real-time.
+     **Guardian Shield** uses advanced machine learning to detect phishing URLs in real-time.
     
     **Features:**
     - 100% ML accuracy
@@ -273,7 +273,7 @@ with st.sidebar:
     """)
     
     st.markdown("---")
-    st.markdown("Built with ️ by Dileep Pabbathi")
+    st.markdown("Built with  by Dileep Pabbathi")
     st.markdown("[GitHub](https://github.com/Dileeppabbathi/guardian-shield)")
 
 # Footer

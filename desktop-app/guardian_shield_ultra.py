@@ -66,7 +66,7 @@ class GuardianShieldUltra:
         header = tk.Frame(self.root, bg='#16213e', height=70)
         header.pack(fill='x')
         
-        title = tk.Label(header, text="️ GUARDIAN SHIELD ULTRA", 
+        title = tk.Label(header, text=" GUARDIAN SHIELD ULTRA", 
                         font=('Arial', 28, 'bold'),
                         bg='#16213e', fg='#00ff00')
         title.pack(pady=8)
@@ -191,7 +191,7 @@ class GuardianShieldUltra:
                 bg='#16213e', fg='#00ffff').pack(pady=5)
         
         # Welcome message
-        self.log_result("️ GUARDIAN SHIELD ULTRA INITIALIZED\n"
+        self.log_result(" GUARDIAN SHIELD ULTRA INITIALIZED\n"
                        " ML Model: ACTIVE (100% Accuracy)\n"
                        " Visual Analytics: ENABLED\n"
                        " Real-Time Monitoring: ONLINE\n"
@@ -224,7 +224,7 @@ class GuardianShieldUltra:
             color = "RED"
             
             result = f"\n{'='*50}\n"
-            result += f"️  THREAT DETECTED at {timestamp}\n"
+            result += f"  THREAT DETECTED at {timestamp}\n"
             result += f"URL: {url}\n"
             result += f"Classification: {classification}\n"
             result += f"Confidence: {conf*100:.1f}%\n"
@@ -232,7 +232,7 @@ class GuardianShieldUltra:
             result += f"Action:  BLOCKED\n"
             result += f"{'='*50}\n"
             
-            messagebox.showerror("️ THREAT DETECTED",
+            messagebox.showerror(" THREAT DETECTED",
                                f"MALICIOUS URL DETECTED!\n\n"
                                f"Confidence: {conf*100:.1f}%\n"
                                f"Risk Level: HIGH\n\n"

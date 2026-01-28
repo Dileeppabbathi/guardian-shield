@@ -23,7 +23,7 @@ def test_image(image_path, true_label):
     predicted_class = np.argmax(predictions[0])
     confidence = predictions[0][predicted_class] * 100
     
-    correct = "✅" if classes[predicted_class] == true_label else "❌"
+    correct = "" if classes[predicted_class] == true_label else ""
     
     print(f"{correct} True: {true_label:10s} | Predicted: {classes[predicted_class]:10s} | Confidence: {confidence:.1f}%")
     return classes[predicted_class] == true_label
@@ -32,7 +32,7 @@ def test_image(image_path, true_label):
 data_dir = '../datasets/images/raw'
 results = []
 
-print("\n📊 Testing Random Samples:")
+print("\n Testing Random Samples:")
 print("-" * 50)
 
 for category in ['malware', 'phishing', 'safe']:

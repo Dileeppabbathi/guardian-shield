@@ -56,7 +56,7 @@ class GuardianShieldPro:
         header = tk.Frame(self.root, bg='#16213e', height=80)
         header.pack(fill='x', pady=(0,10))
         
-        title = tk.Label(header, text="️ GUARDIAN SHIELD PRO", 
+        title = tk.Label(header, text=" GUARDIAN SHIELD PRO", 
                         font=('Arial', 26, 'bold'),
                         bg='#16213e', fg='#00ff00')
         title.pack(pady=10)
@@ -169,7 +169,7 @@ class GuardianShieldPro:
                  bg='#0080ff', fg='#ffffff',
                  cursor='hand2', padx=15, pady=5).pack(side='left', padx=5)
         
-        tk.Button(history_controls, text="️ Clear History",
+        tk.Button(history_controls, text=" Clear History",
                  command=self.clear_history,
                  font=('Arial', 10),
                  bg='#ff0000', fg='#ffffff',
@@ -207,7 +207,7 @@ class GuardianShieldPro:
                 bg='#16213e', fg='#888888').pack()
         
         # Welcome message
-        self.log_result("️ Guardian Shield PRO initialized!\n"
+        self.log_result(" Guardian Shield PRO initialized!\n"
                        " ML Model loaded (100% accuracy)\n"
                        " Enhanced features active\n"
                        " Ready for single or batch scanning\n"
@@ -359,12 +359,12 @@ class GuardianShieldPro:
         if messagebox.askyesno("Confirm", "Clear all scan history?"):
             self.scan_history = []
             self.history_text.delete('1.0', tk.END)
-            self.log_result("\n️ History cleared\n")
+            self.log_result("\n History cleared\n")
     
     def update_history_display(self):
         self.history_text.delete('1.0', tk.END)
         for entry in reversed(self.scan_history[-50:]):  # Last 50
-            emoji = "" if entry['classification'] == "PHISHING" else "✅"
+            emoji = "" if entry['classification'] == "PHISHING" else ""
             line = f"{entry['timestamp']} | {emoji} {entry['url'][:40]}... | {entry['classification']} ({entry['confidence']:.1f}%)\n"
             self.history_text.insert('1.0', line)
     

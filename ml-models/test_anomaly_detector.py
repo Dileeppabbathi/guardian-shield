@@ -12,12 +12,12 @@ print("=" * 60)
 model = keras.models.load_model('saved_models/anomaly_detector_20260128.h5')
 threshold = np.load('saved_models/anomaly_threshold.npy')
 
-print(f"✅ Model loaded")
-print(f"📊 Anomaly threshold: {threshold:.6f}")
+print(f" Model loaded")
+print(f" Anomaly threshold: {threshold:.6f}")
 
 def test_category(category_name, folder_path, num_samples=50):
     """Test images from a category"""
-    print(f"\n🔍 Testing {category_name}...")
+    print(f"\n Testing {category_name}...")
     
     images = []
     files = [f for f in os.listdir(folder_path) if f.endswith(('.png', '.jpg', '.jpeg'))]
@@ -54,8 +54,8 @@ malware_rate = test_category("MALWARE", "../datasets/images/balanced/malware", 1
 phishing_rate = test_category("PHISHING", "../datasets/images/balanced/phishing", 50)
 
 print(f"\n{'='*60}")
-print(f"📊 FINAL RESULTS:")
+print(f" FINAL RESULTS:")
 print(f"   Safe flagged as anomalies: {safe_rate:.1f}% (should be ~5%)")
 print(f"   Malware detected: {malware_rate:.1f}%")
 print(f"   Phishing detected: {phishing_rate:.1f}%")
-print(f"\n✅ Anomaly detector can find UNKNOWN threats!")
+print(f"\n Anomaly detector can find UNKNOWN threats!")

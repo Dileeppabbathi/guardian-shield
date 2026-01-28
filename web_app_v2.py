@@ -9,7 +9,7 @@ from pyzbar import pyzbar
 from PIL import Image
 import io
 
-st.set_page_config(page_title="Guardian Shield", page_icon="️", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="Guardian Shield", page_icon="", layout="wide", initial_sidebar_state="expanded")
 
 st.markdown("""
 <style>
@@ -108,7 +108,7 @@ if 'total_scans' not in st.session_state:
 
 # Sidebar
 with st.sidebar:
-    st.markdown("### ️ Guardian Shield")
+    st.markdown("###  Guardian Shield")
     st.markdown("**Multi-layer threat detection:**")
     
     st.markdown("### Features:")
@@ -130,13 +130,13 @@ with st.sidebar:
         st.error("**Model:** Not Loaded ")
     
     st.markdown("---")
-    st.markdown("Built with ️ by Dileep Pabbathi")
+    st.markdown("Built with  by Dileep Pabbathi")
     st.markdown("[GitHub](https://github.com/Dileeppabbathi/guardian-shield)")
 
 # Header
 col1, col2, col3 = st.columns([1, 3, 1])
 with col2:
-    st.markdown("<h1 style='text-align: center;'>️ GUARDIAN SHIELD</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'> GUARDIAN SHIELD</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center;'>AI-Powered Multi-Layer Threat Detection</h3>", unsafe_allow_html=True)
 
 st.markdown("---")
@@ -152,7 +152,7 @@ col5.metric(" Safe", st.session_state.safe)
 st.markdown("---")
 
 # Tabs
-tab1, tab2, tab3, tab4 = st.tabs([" Scan URL", "📷 Scan Image", "🔲 Scan QR Code", "📊 Analytics"])
+tab1, tab2, tab3, tab4 = st.tabs([" Scan URL", " Scan Image", " Scan QR Code", " Analytics"])
 
 with tab1:
     st.markdown("###  URL Threat Detection")
@@ -172,12 +172,12 @@ with tab1:
                 if prediction == 1:
                     st.session_state.url_threats += 1
                     conf = confidence[1] * 100
-                    st.error(f"###  URL THREAT DETECTED!\n**Type:** Phishing URL\n**Confidence:** {conf:.1f}%\n**Action:** ❌ BLOCKED")
+                    st.error(f"###  URL THREAT DETECTED!\n**Type:** Phishing URL\n**Confidence:** {conf:.1f}%\n**Action:**  BLOCKED")
                     st.session_state.history.append({'timestamp': timestamp, 'type': 'URL', 'content': url, 'result': 'THREAT', 'confidence': conf})
                 else:
                     st.session_state.safe += 1
                     conf = confidence[0] * 100
-                    st.success(f"###  SAFE URL\n**Confidence:** {conf:.1f}%\n**Action:** ✓ ALLOWED")
+                    st.success(f"###  SAFE URL\n**Confidence:** {conf:.1f}%\n**Action:**  ALLOWED")
                     st.session_state.history.append({'timestamp': timestamp, 'type': 'URL', 'content': url, 'result': 'SAFE', 'confidence': conf})
                 
                 st.rerun()
@@ -205,7 +205,7 @@ with tab2:
                     
                     if suspicious_score > 50:
                         st.session_state.image_threats += 1
-                        st.error(f"###  SUSPICIOUS IMAGE!\n**Risk Score:** {suspicious_score}/100\n**Recommendation:** ⚠️ CAUTION")
+                        st.error(f"###  SUSPICIOUS IMAGE!\n**Risk Score:** {suspicious_score}/100\n**Recommendation:**  CAUTION")
                         
                         if qr_urls:
                             st.warning(f"**QR Code Found:** {qr_urls[0]}")
@@ -267,7 +267,7 @@ with tab3:
                                 if prediction == 1:
                                     st.session_state.qr_threats += 1
                                     conf = confidence[1] * 100
-                                    st.error(f" **MALICIOUS QR CODE!**\n**Confidence:** {conf:.1f}%\n**Action:** ❌ DO NOT SCAN")
+                                    st.error(f" **MALICIOUS QR CODE!**\n**Confidence:** {conf:.1f}%\n**Action:**  DO NOT SCAN")
                                     st.session_state.history.append({'timestamp': timestamp, 'type': 'QR', 'content': qr_url, 'result': 'THREAT', 'confidence': conf})
                                 else:
                                     st.session_state.safe += 1

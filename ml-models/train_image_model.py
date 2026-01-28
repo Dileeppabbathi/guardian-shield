@@ -13,7 +13,7 @@ import os
 from datetime import datetime
 import numpy as np
 
-print("️ GUARDIAN SHIELD - IMAGE MODEL TRAINING")
+print(" GUARDIAN SHIELD - IMAGE MODEL TRAINING")
 print("=" * 60)
 
 # Paths
@@ -37,7 +37,7 @@ BATCH_SIZE = 32
 EPOCHS = 10
 
 # Data augmentation
-print("\n️ Setting up data generators...")
+print("\n Setting up data generators...")
 train_datagen = ImageDataGenerator(
     rescale=1./255,
     validation_split=0.2,
@@ -77,7 +77,7 @@ print(f"   Validation samples: {validation_generator.samples:,}")
 print(f"   Classes: {train_generator.class_indices}")
 
 # Build model
-print("\n️ Building MobileNetV2 model...")
+print("\n Building MobileNetV2 model...")
 base_model = MobileNetV2(
     weights='imagenet',
     include_top=False,
