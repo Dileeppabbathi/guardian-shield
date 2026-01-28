@@ -7,3 +7,4 @@ pyzbar==0.1.9
 qrcode==7.4.2
 scikit-learn==1.8.0
 streamlit==1.53.1
+tensorflow==2.15.0
